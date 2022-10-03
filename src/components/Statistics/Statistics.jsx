@@ -1,45 +1,30 @@
+import React from "react";
 import PropTypes from 'prop-types';
-import {
-  StatisticsTotal,
-  StatisticsList,
-  StatisticsItem,
-} from './Statistics.styled';
+import {StatisticsList, StatisticItem} from './Statistics.styled'
 
-const Statistics = ({ good, neutral, bad, total, positivePesnt }) => {
-  return (
-    <div>
-      <StatisticsTotal>Total feedbacks: {total}</StatisticsTotal>
-      <StatisticsList>
-        <StatisticsItem>
-          <p>
-            Good: <br />
-            {good}
-          </p>
-        </StatisticsItem>
-        <StatisticsItem>
-          <p>
-            Neutral: <br />
-            {neutral}
-          </p>
-        </StatisticsItem>
-        <StatisticsItem>
-          <p>
-            Bad: <br />
-            {bad}
-          </p>
-        </StatisticsItem>
-      </StatisticsList>
-      {positivePesnt ? <h3>Positive Feedback: {positivePesnt}%</h3> : ''}
-    </div>
-  );
-};
+
+export default function Statistics ({good, neutral, bad, total, positivePercentage}) {
+    return (
+        <>
+        <StatisticsList>
+            <StatisticItem>Good:  {good}</StatisticItem>
+            <StatisticItem>Neutral: {neutral}</StatisticItem>
+            <StatisticItem>Bad: {bad}</StatisticItem>
+
+        </StatisticsList>
+
+        <StatisticsList>
+             <StatisticItem>Total: {total}</StatisticItem>
+            <StatisticItem>Positive feedback: {positivePercentage}%</StatisticItem>
+        </StatisticsList>
+        </>                 
+    )
+}
 
 Statistics.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  positivePesnt: PropTypes.number,
-};
-
-export default Statistics;
+    good: PropTypes.number.isRequired, 
+    neutral: PropTypes.number.isRequired, 
+    bad: PropTypes.number.isRequired, 
+    total: PropTypes.number.isRequired, 
+    positivePercentage: PropTypes.number.isRequired,
+  };
