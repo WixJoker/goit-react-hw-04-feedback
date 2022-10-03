@@ -1,26 +1,45 @@
 import PropTypes from 'prop-types';
+import {
+  StatisticsTotal,
+  StatisticsList,
+  StatisticsItem,
+} from './Statistics.styled';
 
-import React from 'react'
-// import css from './Statistics.module.css'
+const Statistics = ({ good, neutral, bad, total, positivePesnt }) => {
+  return (
+    <div>
+      <StatisticsTotal>Total feedbacks: {total}</StatisticsTotal>
+      <StatisticsList>
+        <StatisticsItem>
+          <p>
+            Good: <br />
+            {good}
+          </p>
+        </StatisticsItem>
+        <StatisticsItem>
+          <p>
+            Neutral: <br />
+            {neutral}
+          </p>
+        </StatisticsItem>
+        <StatisticsItem>
+          <p>
+            Bad: <br />
+            {bad}
+          </p>
+        </StatisticsItem>
+      </StatisticsList>
+      {positivePesnt ? <h3>Positive Feedback: {positivePesnt}%</h3> : ''}
+    </div>
+  );
+};
 
-export default function Statistics({ good, neutral, bad, total, positivePercentage}) {
-	return (
-		<>
-			<h2>Statistics</h2>
-			<div>
-				<p>Good: {good} </p>
-				<p>Neutral: {neutral}</p>
-				<p>Bad: {bad}</p>
-				<p>Total: {total}</p>
-				<p>Positive Feedback: {positivePercentage}%</p>
-			</div>
-		</>
-	)
-}
-Statistics.prototype = {
+Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.string.isRequired,
+  positivePesnt: PropTypes.number,
 };
+
+export default Statistics;

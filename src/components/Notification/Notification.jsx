@@ -1,12 +1,11 @@
-import React from 'react'
-import css from './Notification.module.css'
-import photo from './FeedBackFoto/feedback.jpeg'
+import PropTypes from 'prop-types';
 
-export default function Notification() {
-    return (
-        <div>
-            <p className={css.text}>There is no feedback here</p>
-        <img src={photo} alt="feedback"/>
-        </div>
-    )
-}
+const Notification = ({ message }) => {
+  return <h3>{message}</h3>;
+};
+
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+export default Notification;

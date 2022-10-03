@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types';
-import css from './Section.module.css';
+import { SectionBox } from './Section.styled';
 
 const Section = ({ title, children }) => {
   return (
-    <section className={css.section}>
-      <div className={css.container}>
-        {title && <h2 className={css.title}>{title}</h2>}
-        {children}
-      </div>
-    </section>
+    <SectionBox>
+      <h2>{title}</h2>
+      {children}
+    </SectionBox>
   );
 };
 
-Section.prototype = {
-  title: PropTypes.string,
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Section;
