@@ -31,8 +31,10 @@ export default function Feedback() {
         return good + neutral + bad
     };
 
+    const total = countTotalFeedback();
+
       const countPositiveFeedbackPercentage = () => {
-        const total = countTotalFeedback();
+        
         if (!total) {
             return 0;
         };
@@ -45,10 +47,9 @@ export default function Feedback() {
          <>
               <Section title="Please leave feedback">
                    <Controls onIncrement={onIncrement} options={Object.keys({good, neutral, bad})} />
-                  {countTotalFeedback() ? <Statistic good={good} neutral={neutral} bad={bad} total={countTotalFeedback()} totalPercent={countPositiveFeedbackPercentage()} /> :
+                  {total ? <Statistic good={good} neutral={neutral} bad={bad} total={total} totalPercent={countPositiveFeedbackPercentage()} /> :
                            <Notifycation message={"There is no feedback"} />}
               </Section>
-            
-          </>
+            </>
     );
 };
