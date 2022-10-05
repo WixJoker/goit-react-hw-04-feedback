@@ -9,7 +9,6 @@ export default function Controls({ onIncrement, options }) {
   );
 };
 
-
 Controls.propTypes = {
     onIncrement: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired,

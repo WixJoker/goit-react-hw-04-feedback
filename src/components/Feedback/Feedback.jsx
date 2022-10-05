@@ -40,6 +40,7 @@ export default function Feedback() {
         const result = (value / total) * 100;
         return Number(result.toFixed())
     };
+
     return (
          <>
               <Section title="Please leave feedback">
